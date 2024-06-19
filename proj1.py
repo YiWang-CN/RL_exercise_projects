@@ -92,18 +92,18 @@ def value_iteration(env, gamma=0.8, theta=1e-8):
             max_value = np.max(A)
             delta = max(delta, np.abs(max_value - V[s]))
             V[s] = max_value
-        # #打印价值函数V
-        # # 定义每个元素的宽度和每行的元素数
-        # element_width = 20
-        # elements_per_line = 4
-        # # 将数组转换为固定宽度的字符串列表
-        # formatted_values = [f"{v:{element_width}}" for v in V]
-        # # 将格式化的字符串分成每行4个元素
-        # lines = [formatted_values[i:i + elements_per_line] for i in range(0, len(formatted_values), elements_per_line)]
-        # print("V:")
-        # # 打印输出
-        # for line in lines:
-        #     print(" ".join(line))
+        #打印价值函数V
+        # 定义每个元素的宽度和每行的元素数
+        element_width = 20
+        elements_per_line = 4
+        # 将数组转换为固定宽度的字符串列表
+        formatted_values = [f"{v:{element_width}}" for v in V]
+        # 将格式化的字符串分成每行4个元素
+        lines = [formatted_values[i:i + elements_per_line] for i in range(0, len(formatted_values), elements_per_line)]
+        print("V:")
+        # 打印输出
+        for line in lines:
+            print(" ".join(line))
 
         if delta < theta:
             break
@@ -151,36 +151,9 @@ env.reset()
 # env.render()
 
 
-# 策略迭代
-print('====================策略迭代====================')
-optimal_policy, optimal_value_function = policy_iteration(env, discount_factor=1)
-print("Optimal Policy is a probability matrix (0=Left, 1=Down, 2=Right, 3=Up):")
-print(optimal_policy)
-
-print("Optimal Value Function:")
-#打印价值函数V
-# 定义每个元素的宽度和每行的元素数
-element_width = 20
-elements_per_line = 4
-# 将数组转换为固定宽度的字符串列表
-formatted_values = [f"{v:{element_width}.4f}" for v in optimal_value_function]
-# 将格式化的字符串分成每行4个元素
-lines = [formatted_values[i:i + elements_per_line] for i in range(0, len(formatted_values), elements_per_line)]
-print("V:")
-# 打印输出
-for line in lines:
-    print(" ".join(line))
-
-# 使用迭代计算得到的策略打游戏
-play_game(env, optimal_policy, episodes=10)
-env.close()
-
-
-
-
-# # 价值迭代
-# print('====================价值迭代====================')
-# optimal_value_function, optimal_policy = value_iteration(env, gamma=0.8)
+# # 策略迭代
+# print('====================策略迭代====================')
+# optimal_policy, optimal_value_function = policy_iteration(env, discount_factor=0.8)
 # print("Optimal Policy is a probability matrix (0=Left, 1=Down, 2=Right, 3=Up):")
 # print(optimal_policy)
 
@@ -197,7 +170,34 @@ env.close()
 # # 打印输出
 # for line in lines:
 #     print(" ".join(line))
-# # print(np.reshape(optimal_value_function, (4, 4)))
+
+# # 使用迭代计算得到的策略打游戏
+# play_game(env, optimal_policy, episodes=10)
+# env.close()
+
+
+
+
+# 价值迭代
+print('====================价值迭代====================')
+optimal_value_function, optimal_policy = value_iteration(env, gamma=0.8)
+print("Optimal Policy is a probability matrix (0=Left, 1=Down, 2=Right, 3=Up):")
+print(optimal_policy)
+
+print("Optimal Value Function:")
+#打印价值函数V
+# 定义每个元素的宽度和每行的元素数
+element_width = 20
+elements_per_line = 4
+# 将数组转换为固定宽度的字符串列表
+formatted_values = [f"{v:{element_width}.4f}" for v in optimal_value_function]
+# 将格式化的字符串分成每行4个元素
+lines = [formatted_values[i:i + elements_per_line] for i in range(0, len(formatted_values), elements_per_line)]
+print("V:")
+# 打印输出
+for line in lines:
+    print(" ".join(line))
+# print(np.reshape(optimal_value_function, (4, 4)))
 
 # # 使用迭代计算得到的策略打游戏
 # play_game(env, optimal_policy, episodes=10)
