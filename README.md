@@ -6,7 +6,7 @@ is_slippery=False，gamma = 0.8
 
 环境为：
 
-![alt text](markdown_image/image-4.png)
+![alt text](markdown_images/image-4.png)
 ### 策略迭代
 <img src="markdown_images/image.png" alt="Image" width="500"/>
 <img src="markdown_images/image-1.png" alt="Image" width="500"/>
