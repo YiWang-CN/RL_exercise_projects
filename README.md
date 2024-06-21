@@ -23,7 +23,7 @@ is_slippery=False，gamma = 0.8
 <img src="markdown_images/image-10.png" alt="Image" width="500"/>
 <img src="markdown_images/image-11.png" alt="Image" width="500"/>
 
-PS：策略迭代中如果设置is_slippery=False，gamma=1，最终会收敛出两种策略如下：
+### PS：策略迭代中如果设置is_slippery=False，gamma=1，最终会收敛出两种策略如下：
 
 <img src="markdown_images/image-12.png" alt="Image" width="500"/>
 
